@@ -1,10 +1,10 @@
 # Lab2GL20
-Lab2 GL .\n
-Class : GL2.\n
-Group 6 Fork.\n\n
+#Lab2 GL .
+#Class : GL2.
+#Group 6 Fork.
 
-Memebers :\n
-Ahmed Fakhir\n
-Ayman El Mouss\n
-Salma Loumedene\n
-Khalil Maadani\n
+#Memebers :
+*Ahmed Fakhir
+*Ayman El Mouss
+*Salma Loumedene
+*Khalil Maadani
