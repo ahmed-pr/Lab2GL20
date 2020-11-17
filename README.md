@@ -4,7 +4,7 @@ Lab2 GL .
 Class : GL2.  
 Group 6 Fork.    
 
-Memebers :  
+Members :  
 * Ahmed Fakhir  
 * Ayman El Mouss  
 * Salma Loumedene  
