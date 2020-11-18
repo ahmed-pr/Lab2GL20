@@ -8,6 +8,4 @@ Members :
 * Ahmed Fakhir  
 * Ayman El Mouss  
 * Salma Loumedene  
-* Khalil Maadani  
-
-final copy
+* Khalil Maadani
