@@ -30,7 +30,7 @@ class hash1{
 
         //int  nombreItems(int index);
         //void afficherItemsDansIndex(int index); // les items qui ont le même resultat de hashage et qui sont empilés
-        //void chercherItem(string nom);
+        void chercherItem(string nom);
         //void supprimerItem(string nom);
 
 //        Un problème d’un entrevue chez Google.

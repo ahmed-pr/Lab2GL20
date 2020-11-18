@@ -37,3 +37,18 @@ hash1::hash1(){
         HashTable[i]->next = NULL;
      }
 }
+
+void hash1::chercherItem(string nom){
+    int index = HASH(nom);
+    item* currItem = HashTable[index];
+    while(currItem!= NULL){
+        if(currItem->nom == nom){
+            cout << "la personne recherchée :" << endl;
+            cout << "nom :" << nom << "tel:" << currItem->tel << endl;
+            return;
+        }
+        else
+            currItem = currItem->next;
+    }
+    cout << "la personne recherchée est introuvable !" ;
+}
