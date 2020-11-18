@@ -67,20 +67,36 @@ hash1::hash1(){
         HashTable[i]->next = NULL;
      }
 }
+int hash1::nombreItems(int index){
+    size_t count = 0;
+    for(unsigned int i = 0; i < TLEN; i++) {
+        if(hashTable[i].size() == 1) {
+            count++;
+        }
+        else; //If it equals 0, do nothing.
+    }
+    return count;
+}
+void hash 1::afficherItemsDansIndex(int index){
+    int count =  nombreItems(int index);
+    for( int i=0; i<count; i++){
+        cout << hashTable[i]->item <<;
+    }
+}
 
 void hash1::chercherItem(string nom){
     int index = HASH(nom);
     item* currItem = HashTable[index];
     while(currItem!= NULL){
         if(currItem->nom == nom){
-            cout << "la personne recherchée :" << endl;
+            cout << "la personne recherchÃ©e :" << endl;
             cout << "nom :" << nom << "tel:" << currItem->tel << endl;
             return;
         }
         else
             currItem = currItem->next;
     }
-    cout << "la personne recherchée est introuvable !" ;
+    cout << "la personne recherchÃ©e est introuvable !" ;
 }
 
 void hash1::supprimerItem(string nom){
@@ -95,14 +111,14 @@ void hash1::supprimerItem(string nom){
             HashTable[index]->nom = "vide";
             HashTable[index]->tel = "vide";
 
-            cout << "l'element a été supprime" << endl;
+            cout << "l'element a Ã©tÃ© supprime" << endl;
             return;
         }
     }
     else{ // plusieurs elements dans l element d'indice index
         if(HashTable[index]->nom == nom){
             HashTable[index] = HashTable[index]->next;
-            cout << "l'element empilé a été supprime" << endl;
+            cout << "l'element empilÃ© a Ã©tÃ© supprime" << endl;
             return ;
         }
         item* prevItem = HashTable[index] ;
@@ -111,7 +127,7 @@ void hash1::supprimerItem(string nom){
         while(currItem != NULL){
             if(currItem->nom == nom){
                 prevItem->next = currItem->next;
-                cout << "l'element empilé a été supprime" << endl;
+                cout << "l'element empilÃ© a Ã©tÃ© supprime" << endl;
                 return;
             }
             else
