@@ -28,8 +28,8 @@ class hash1{
         void ajouterItem(string nom, string tel);
         void afficherItem();
 
-        //int  nombreItems(int index);
-        //void afficherItemsDansIndex(int index); // les items qui ont le même resultat de hashage et qui sont empilés
+        int  nombreItems(int index);
+        void afficherItemsDansIndex(int index); // les items qui ont le même resultat de hashage et qui sont empilés
         void chercherItem(string nom);
         void supprimerItem(string nom);
 
