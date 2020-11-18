@@ -52,3 +52,42 @@ void hash1::chercherItem(string nom){
     }
     cout << "la personne recherchée est introuvable !" ;
 }
+
+void hash1::supprimerItem(string nom){
+    int index = HASH(nom);
+    if(HashTable[index]->next == NULL){ //un seul element dans "index"
+        if(HashTable[index]->nom != nom){
+            cout << "l'element a supprime est introuvable";
+            return;
+        }
+        else{
+            HashTable[index] = new item;
+            HashTable[index]->nom = "vide";
+            HashTable[index]->tel = "vide";
+
+            cout << "l'element a été supprime" << endl;
+            return;
+        }
+    }
+    else{ // plusieurs elements dans l element d'indice index
+        if(HashTable[index]->nom == nom){
+            HashTable[index] = HashTable[index]->next;
+            cout << "l'element empilé a été supprime" << endl;
+            return ;
+        }
+        item* prevItem = HashTable[index] ;
+        item* currItem = prevItem->next;
+
+        while(currItem != NULL){
+            if(currItem->nom == nom){
+                prevItem->next = currItem->next;
+                cout << "l'element empilé a été supprime" << endl;
+                return;
+            }
+            else
+                prevItem = currItem;
+                currItem = currItem->next;
+        }
+        cout << "l'element a supprime est introuvable !" ;
+    }
+}
