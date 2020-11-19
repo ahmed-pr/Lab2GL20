@@ -15,8 +15,8 @@ int hash1::HASH(string cle)
     {
         // pour chaque char je reccupere le code ascii et je l'ajoute a la somme
         hashage = hashage + (int)cle[i];
-        cout << cle[i] << endl;
-        cout << hashage << endl;
+        //cout << cle[i] << endl;
+        //cout << hashage << endl;
     }
 
     // modulo de la sommme des codes ascii sur tailleTableau
@@ -24,17 +24,16 @@ int hash1::HASH(string cle)
     index = hashage % tailleTableau;
 
     //index = 0;
-    cout << index << endl;
+    //cout << index << endl;
 
     return index;
 }
 
 void hash1::afficherItem(){
     for (int i = 0; i<tailleTableau; i++){
-        cout << "****   " << ;
+        cout << "****             "  ;
         cout << "Le nom: "<< HashTable[i]->nom << "//";
-        cout << "Telephone: "<< HashTable[i]->tel;
-         cout << "   ****" << endl;
+        cout << "Telephone: "<< HashTable[i]->tel<<endl;
     }
 }
 
@@ -68,20 +67,25 @@ hash1::hash1(){
      }
 }
 int hash1::nombreItems(int index){
-    size_t count = 0;
-    for(unsigned int i = 0; i < TLEN; i++) {
-        if(hashTable[i].size() == 1) {
+    item* currItem = HashTable[index];
+    int count = 0;
+        do{
             count++;
-        }
-        else; //If it equals 0, do nothing.
-    }
+            currItem = currItem->next;
+        }while(currItem!= NULL);
     return count;
 }
-void hash 1::afficherItemsDansIndex(int index){
-    int count =  nombreItems(int index);
-    for( int i=0; i<count; i++){
-        cout << hashTable[i]->item <<;
+void hash1::afficherItemsDansIndex(int index){
+        item* currItem = HashTable[index];
+
+        while(currItem!= NULL){
+            cout << "    "<<currItem->nom  << endl;
+            cout << "    "<<currItem->tel << endl;
+            currItem = currItem->next;
     }
+
+
+
 }
 
 void hash1::chercherItem(string nom){
@@ -89,21 +93,21 @@ void hash1::chercherItem(string nom){
     item* currItem = HashTable[index];
     while(currItem!= NULL){
         if(currItem->nom == nom){
-            cout << "la personne recherchée :" << endl;
-            cout << "nom :" << nom << "tel:" << currItem->tel << endl;
+            cout << "La personne recherchee :" << endl;
+            cout << "    nom :" << nom << "//    tel:" << currItem->tel << endl;
             return;
         }
         else
             currItem = currItem->next;
     }
-    cout << "la personne recherchée est introuvable !" ;
+    cout << "    La personne recherchee est introuvable !" ;
 }
 
 void hash1::supprimerItem(string nom){
     int index = HASH(nom);
     if(HashTable[index]->next == NULL){ //un seul element dans "index"
         if(HashTable[index]->nom != nom){
-            cout << "l'element a supprime est introuvable";
+            cout << "L'element a supprimer est introuvable";
             return;
         }
         else{
@@ -111,14 +115,14 @@ void hash1::supprimerItem(string nom){
             HashTable[index]->nom = "vide";
             HashTable[index]->tel = "vide";
 
-            cout << "l'element a été supprime" << endl;
+            cout << "Supression reussie" << endl;
             return;
         }
     }
     else{ // plusieurs elements dans l element d'indice index
         if(HashTable[index]->nom == nom){
             HashTable[index] = HashTable[index]->next;
-            cout << "l'element empilé a été supprime" << endl;
+            cout << "L'element empile a ete supprime." << endl;
             return ;
         }
         item* prevItem = HashTable[index] ;
@@ -127,7 +131,7 @@ void hash1::supprimerItem(string nom){
         while(currItem != NULL){
             if(currItem->nom == nom){
                 prevItem->next = currItem->next;
-                cout << "l'element empilé a été supprime" << endl;
+                cout << "L'element empile a ete supprime." << endl;
                 return;
             }
             else
